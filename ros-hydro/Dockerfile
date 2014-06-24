@@ -30,8 +30,9 @@ RUN apt-get -y update
 # Install ROS base
 RUN apt-get -y install ros-hydro-ros-base
 
-# Install additional ROS packages
+# Install additional useful packages
 RUN apt-get -y install python-rosinstall
+RUN apt-get -y install bash-completion git build-essential vim
 
 # Initialise rosdep
 RUN rosdep init
