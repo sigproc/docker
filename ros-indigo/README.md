@@ -1,5 +1,5 @@
-"hydro" Docker image for ROS
-============================
+"indigo" Docker image for ROS
+=============================
 
-A Dockerfile used to build a basic ROS "hydro" image installed onto Ubuntu
-12.04 (precise).
+A Dockerfile used to build a basic ROS "indigo" image installed onto Ubuntu
+14.04 (trusty).
