@@ -12,6 +12,9 @@ MAINTAINER Rich Wareham <rjw57@cam.ac.uk>
 # Use the "noninteractive" debconf frontend since we're installing in a non-interactive way.
 ENV DEBIAN_FRONTEND noninteractive
 
+# Make sure we have the latest package sources
+RUN apt-get -y update
+
 # Install package containing the CLI tools we'll be using.
 RUN apt-get -y install apt-utils
 RUN apt-get -y install wget software-properties-common sudo
