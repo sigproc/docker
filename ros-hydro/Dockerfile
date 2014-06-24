@@ -44,7 +44,11 @@ RUN usermod -a -G dialout ros
 # And, as that user...
 USER ros
 
+# Create a ROS workspace for the ROS user.
+RUN mkdir /home/ros/workspace
+RUN rosws init /home/ros/workspace /opt/ros/hydro
+RUN echo "source ~/workspace/setup.bash" >> /home/ros/.bashrc
+
 # HOME needs to be set explicitly. Without it, the HOME environment variable is
 # set to "/"
-RUN echo "source /opt/ros/hydro/setup.bash" >> /home/ros/.bashrc
 RUN HOME=/home/ros rosdep update
