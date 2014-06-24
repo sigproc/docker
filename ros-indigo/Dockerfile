@@ -26,8 +26,8 @@ RUN add-apt-repository -y "deb http://packages.ros.org/ros/ubuntu trusty main"
 # Fetch ROS package repo details
 RUN apt-get -y update
 
-# Install ROS base
-RUN apt-get -y install ros-indigo-ros-base
+# Install ROS
+RUN apt-get -y install ros-indigo-desktop-full
 
 # Install additional useful packages
 RUN apt-get -y install bash-completion git build-essential vim
