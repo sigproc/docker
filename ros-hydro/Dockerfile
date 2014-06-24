@@ -31,7 +31,6 @@ RUN apt-get -y update
 RUN apt-get -y install ros-hydro-ros-base
 
 # Install additional useful packages
-RUN apt-get -y install python-rosinstall
 RUN apt-get -y install bash-completion git build-essential vim
 
 # Initialise rosdep
@@ -44,11 +43,12 @@ RUN usermod -a -G dialout ros
 # And, as that user...
 USER ros
 
-# Create a ROS workspace for the ROS user.
-RUN mkdir /home/ros/workspace
-RUN rosws init /home/ros/workspace /opt/ros/hydro
-RUN echo "source ~/workspace/setup.bash" >> /home/ros/.bashrc
-
 # HOME needs to be set explicitly. Without it, the HOME environment variable is
 # set to "/"
 RUN HOME=/home/ros rosdep update
+
+# Create a ROS workspace for the ROS user.
+RUN mkdir -p /home/ros/workspace/src
+RUN /bin/bash -c '. /opt/ros/hydro/setup.bash; catkin_init_workspace /home/ros/workspace/src'
+RUN /bin/bash -c '. /opt/ros/hydro/setup.bash; cd /home/ros/workspace; catkin_make'
+RUN echo "source ~/workspace/devel/setup.bash" >> /home/ros/.bashrc
