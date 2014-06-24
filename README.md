@@ -1,4 +1,4 @@
-robotic-surgery
-===============
+Docker build files for SigProC machines
+=======================================
 
-Repository for the 2014 MEng robotic surgery project
+This repository contains base Docker images for SigProc machines.
