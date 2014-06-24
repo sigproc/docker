@@ -41,7 +41,6 @@ RUN rosdep init
 
 # Now create the ros user itself
 RUN adduser --gecos "ROS User" --disabled-password ros
-RUN usermod -a -G dialout ros
 
 # And, as that user...
 USER ros
